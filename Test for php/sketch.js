@@ -69,7 +69,7 @@ function resetBall() {
     yBall > 400 - 10) {
     loss = true;
     addScore(score);
-    retrieveHighScores();
+    // retrieveHighScores();
   }
 }
 
@@ -80,7 +80,10 @@ async function addScore(finalScore) {
   fetch("https://oege.ie.hva.nl/~wesselr4/api/score.php", {
     method: "POST",
     body: formData,
-  }).then((data) => console.log(data));
+  }).then((data) => { 
+    console.log(data);
+    retrieveHighScores();
+  });
 }
 
 async function retrieveHighScores() {
